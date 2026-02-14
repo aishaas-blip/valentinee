@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will you be my Valentine? 💌</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 30px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+/* الصفحة الثانية */
+#secondPage {
+  display: none;
+  position: relative;
+  height: 100vh;
+  background-color: #fff0f5;
+}
+
+#secondPage img {
+  width: 200px;
+  margin-top: 30px;
+}
+
+.leaves {
+  position: absolute;
+  width: 30px;
+  animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: -50px; left: 50px; opacity: 1; }
+  100% { top: 300px; left: 150px; opacity: 0; }
+}
+
+#secondPage h1 {
+  margin-top: 20px;
+  color: crimson;
+}
+</style>
+</head>
+<body>
+
+<!-- الصفحة الأولى -->
+<div id="firstPage">
+  <h2>Will you be my Valentine? ❤️‍🔥</h2>
+  <button id="yes">YES</button>
+  <button id="no">NO</button>
+</div>
+
+<!-- الصفحة الثانية -->
+<div id="secondPage">
+  <img src="https://i.postimg.cc/Y0t7C9Vk/valentine-tree.png" alt="Tree">
+  <div class="leaves" style="left: 60px;"></div>
+  <div class="leaves" style="left: 120px;"></div>
+  <h1>kel sene W nty my Valentine ❤️<br>Ykhalikly nshlh 💞</h1>
+</div>
+
+<script>
+let size = 20;
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const firstPage = document.getElementById("firstPage");
+const secondPage = document.getElementById("secondPage");
+
+noBtn.onclick = function(){
+  size += 10;
+  yesBtn.style.fontSize = size + "px";
+}
+
+yesBtn.onclick = function(){
+  firstPage.style.display = "none";
+  secondPage.style.display = "block";
+  
+  // إنشاء أوراق إضافية تتحرك تلقائيًا
+  for(let i=0; i<10; i++){
+    const leaf = document.createElement("div");
+    leaf.className = "leaves";
+    leaf.style.left = Math.random()*300 + "px";
+    document.getElementById("secondPage").appendChild(leaf);
+  }
+}
+</script>
+
+</body>
+</html>
