@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine</title>
+<style>
+  body { text-align: center; font-family: Arial, sans-serif; background-color: #fff0f5; }
+  #question, #final { margin-top: 100px; }
+  button { font-size: 20px; padding: 10px 20px; margin: 20px; cursor: pointer; transition: all 0.2s; }
+  #tree { position: relative; width: 300px; margin: 50px auto; }
+  .leaf { position: absolute; animation: fall 5s linear infinite; font-size: 24px; }
+  @keyframes fall {
+    0% { top: 0; left: 50%; opacity:1; }
+    100% { top: 200px; left: 70%; opacity:0; }
+  }
+</style>
+</head>
+<body>
+
+<div id="question">
+  <h1>Will you be my Valentine? ❤️‍🔥</h1>
+  <button id="yes">YES</button>
+  <button id="no">NO</button>
+</div>
+
+<div id="final" style="display:none;">
+  <h1>Kel sene W nty my Valentine Ykhalikly nshlh 💞</h1>
+  <div id="tree">
+    <div class="leaf" style="animation-delay:0s;">🍁</div>
+    <div class="leaf" style="animation-delay:1s;">🍁</div>
+    <div class="leaf" style="animation-delay:2s;">🍁</div>
+    <div class="leaf" style="animation-delay:3s;">🍁</div>
+    <div class="leaf" style="animation-delay:4s;">🍁</div>
+  </div>
+</div>
+
+<script>
+let noBtn = document.getElementById("no");
+let yesBtn = document.getElementById("yes");
+let questionDiv = document.getElementById("question");
+let finalDiv = document.getElementById("final");
+
+let scale = 1;
+noBtn.addEventListener("click", () => {
+  scale += 0.1;
+  noBtn.style.transform = "scale(" + scale + ")";
+});
+
+yesBtn.addEventListener("click", () => {
+  questionDiv.style.display = "none";
+  finalDiv.style.display = "block";
+});
+</script>
+
+</body>
+</html>
